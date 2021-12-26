@@ -1,12 +1,20 @@
+import './styles/config.css'
+import './styles/helpers.css'
+import { StoreProvider } from './context'
+import { AppLayout, SideBar,} from './components'
+import {TaskAll} from './pages'
+import { BrowserRouter as Router} from 'react-router-dom'
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <StoreProvider>
+      <Router>
+        <AppLayout sideBar={<SideBar/>} content={<TaskAll/>}  />
+      </Router>
       
-    </div>
-  );
+    </StoreProvider>
+  )
 }
 
-export default App;
+export default App

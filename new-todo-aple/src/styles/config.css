@@ -1,0 +1,89 @@
+:root {
+  /* Colors */
+  --color-gray-default: #e7e8e9; /* Sidebar */
+  --color-gray-darken-1: #dadbdc; /* Search */
+  --color-gray-darken-2: #d0d1d2; /* Switcher body */
+  --color-gray-darken-3: #cecfd0; /* Selected Category */
+  --color-gray-darken-4: #919191; /* Text notes for Task-note */
+  --color-gray-darken-5: #5a626a; /* background-color for Icon-all */
+  --color-blue-lighten: #5d98f7; /* Selected Category */
+  --color-blue-default: #077afe; /* Default color */
+  --color-red: #ff3a2f; /* Scheduled */
+  --color-orange: #ff9502; /* Flagged */
+  --color-green: #19c759; /* Extra color for Category-Icon */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /*font-size*/
+  --font-size-xx-small: 12px;
+  --font-size-x-small: 14px;
+  --font-size-small: 16px;
+  --font-size-medium: 20px;
+  --font-size-large: 24px;
+  --font-size-x-large: 30px;
+  --font-size-xx-large: 38px;
+  --font-size-xxx-large: 46px;
+
+  /*line-height*/
+  --line-height-xx-small: 20px;
+  --line-height-x-small: 22px;
+  --line-height-small: 24px;
+  --line-height-medium: 28px;
+  --line-height-large: 32px;
+  --line-height-x-large: 38px;
+  --line-height-xx-large: 46px;
+  --line-height-xxx-large: 54px;
+
+  /*font-weight*/
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /*paddings*/
+  --p-none: 0px;
+  --p-sm: 2px;
+  --p-md: 4px;
+  --p-lg: 8px;
+  --p-xl: 16px;
+  --p-xxl: 32px;
+  
+
+  /*margin*/
+  --m-none: 0px;
+  --m-sm: 2px;
+  --m-md: 4px;
+  --m-lg: 8px;
+  --m-xl: 16px;
+  --m-xxl: 32px;
+  --m-xxxl:64px;
+
+  /*border-radius*/
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 6px;
+  --border-radius-xl: 8px;
+  --border-radius-xxl: 10px;
+  --border-radius-round: 50%;
+
+  /*checkbox*/
+  --checkbox-sm: 16px;
+  --checkbox-md: 18px;
+  --checkbox-lg: 24px;
+
+  /*border*/
+  --b-none: 0;
+  --b-sm: 1px;
+  --b-md: 2px;
+  --b-lg: 3px;
+
+  /*opacity*/
+  --opacity-100: 100%;
+  --opacity-0: 0%;
+
+  /* Input cancel size */
+  --cancel-sm: 12px;
+  --cancel-md: 14px;
+  --cancel-lg: 18px;
+}
+
+/* @import url(heplers.css); */
