@@ -2,7 +2,7 @@ import { SwitcherWrapper } from './Switcher.style'
 import { IconModule, Col, Row, Text } from '../'
 
 const Switcher = props => {
-  const { children, icon, iconBg, ...rest } = props
+  const { value, children, icon, iconBg, ...rest  } = props
 
   return (
     <SwitcherWrapper {...rest}>
@@ -11,7 +11,7 @@ const Switcher = props => {
           <IconModule iconBg={iconBg} icon={icon} />
         </Col>
         <Col className="ml-auto">
-          <Text>5</Text>
+          <Text>{value}</Text>
         </Col>
       </Row>
       <Row>

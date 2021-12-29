@@ -17,10 +17,10 @@ const CategoryList = () => {
         justifyContent: 'space-between',
       }}>
       <Col style={{ padding: '15px 0 0 0' }}>
-        {store?.map(item => {
+        {store.categories?.map(item => {
           return (
-            <CategoryCombaineView key={item.id} itemId={item.id}>
-              {item.name}
+            <CategoryCombaineView key={item.id} categoryId={item.categoryId}>
+              {item.categoryName}
             </CategoryCombaineView>
           )
         })}

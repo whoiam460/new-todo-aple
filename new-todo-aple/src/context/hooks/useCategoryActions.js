@@ -1,6 +1,11 @@
+import firestoreService from '../../service/firebase/firestoreService'
 const useCategoryActions = dispatch => {
   const addRecord = data => {
     const payload = data
+    firestoreService.createDocument('categories', payload.categoryId, {
+      categoryId: payload.categoryId,
+      categoryName: payload.categoryName,
+    })
     dispatch({
       type: 'addRecord',
       payload,
@@ -8,18 +13,29 @@ const useCategoryActions = dispatch => {
   }
 
   const removeRecord = data => {
-    const payload = data
+    const { store, categoryId } = data
+    const tasks = store.tasks
+    firestoreService.deleteDocument('categories', categoryId)
+    tasks.forEach(item => {
+      if (item.parentId === categoryId) {
+        firestoreService.deleteDocument('tasks', item.taskId)
+      }
+    })
     dispatch({
       type: 'removeRecord',
-      payload,
+      payload: categoryId,
     })
   }
 
-  const updateRecord = (id, newTitle) => {
+  const updateRecord = (categoryId, newTitle) => {
     const payload = {
-      id,
+      categoryId,
       newTitle,
     }
+    firestoreService.updateDocument('categories', categoryId, {
+      categoryId: categoryId,
+      categoryName: newTitle,
+    })
     dispatch({
       type: 'updateRecord',
       payload,

@@ -1,11 +1,19 @@
-import { PageLayout, Title } from '../components'
-import { Routes, Route } from 'react-router-dom'
+import { Title } from '../components'
+import { useStore } from '../context'
+
 const TaskAll = () => {
+  const { store } = useStore()
   return (
-    <Routes>
-      <Route exact path=":id" element={<PageLayout />} />
-      <Route exact path="/" element= {<Title>no remainders</Title>}  />
-    </Routes>
+    <>
+      {store.categories.map(item => {
+        return (<Title>{item.categoryName}</Title>
+          
+          )
+          store.tasks.map(elem => {
+            return
+          })
+      })}
+    </>
   )
 }
 export default TaskAll

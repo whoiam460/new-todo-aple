@@ -5,22 +5,43 @@ import {
 import { IconModule, Text, Button, Input } from '../../../components'
 import { AiOutlineUnorderedList, AiOutlineClose } from 'react-icons/ai'
 import { useStore } from '../../../context'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const CategorySimpleView = props => {
-  const { children, itemId } = props
-  const { removeRecord, updateRecord } = useStore()
+  const { children, categoryId } = props
+  const {
+    removeRecord,
+    updateRecord,
+    setSelectedCategory,
+    selectedCategory,
+    store,
+  } = useStore()
   const [editCategoryMode, setEditCategoryMode] = useState(false)
   const [updateDataValue, setUpdateDataValue] = useState(children)
   const Navigate = useNavigate()
 
   const updateCategory = e => {
     if (e.key === 'Enter') {
-      updateRecord(itemId, updateDataValue)
+      updateRecord(categoryId, updateDataValue)
       setEditCategoryMode(false)
     }
   }
+
+  let taskCounter = 0
+  store?.tasks?.map(item =>
+    item.parentId === categoryId ? taskCounter++ : null
+  )
+
+  const defaultPath = () => {
+    if (selectedCategory?.categoryId === categoryId) {
+      Navigate('/')
+    }
+  }
+
+  useEffect(() => {
+    Navigate('/')
+  }, [])
 
   return (
     <>
@@ -37,16 +58,26 @@ const CategorySimpleView = props => {
           <Text className="ml-auto">0</Text>
         </CategoryFormWraper>
       ) : (
-        <CategoryViewWraper onClick={() => Navigate(itemId)}>
+        <CategoryViewWraper>
           <IconModule icon={<AiOutlineUnorderedList />} />
           <Text
+            onClick={() => {
+              Navigate(categoryId)
+              setSelectedCategory({
+                categoryId,
+                name: children,
+              })
+            }}
             onDoubleClick={() => setEditCategoryMode(true)}
             className="ml-md">
             {children}
           </Text>
-          <Text className="ml-auto">0</Text>
+          <Text className="ml-auto">{taskCounter}</Text>
           <Button
-            onClick={() => removeRecord(itemId)}
+            onClick={() => {
+              removeRecord({ store, categoryId })
+              defaultPath()
+            }}
             className="ml-md"
             icon={<AiOutlineClose />}
           />

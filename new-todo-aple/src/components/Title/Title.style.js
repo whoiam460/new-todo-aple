@@ -10,6 +10,7 @@ const TitleStyled = styled.div`
           font-size: 24px;
           line-height: 24px;
           font-weight: bold;
+          font-family: 'San Francisco';
           color: ${props => props.color || '#037aff'};
         `
       case 'h3':
@@ -17,6 +18,7 @@ const TitleStyled = styled.div`
           font-size: 16px;
           line-height: 16px;
           font-weight: bold;
+          font-family: 'San Francisco';
           color: ${props => props.color || '#6a6b6b'};
         `
       case 'h4':
@@ -24,14 +26,15 @@ const TitleStyled = styled.div`
           font-size: 12px;
           line-height: 12px;
           font-weight: normal;
+          font-family: 'San Francisco';
           color: ${props => props.color || '#a7a8a9'};
         `
       default:
         return css`
-          width:19px;
           font-size: 32px;
           line-height: 32px;
           font-weight: bold;
+          font-family: 'San Francisco';
           color: ${props => props.color || '#037aff'};
         `
     }

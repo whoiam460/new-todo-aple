@@ -10,13 +10,11 @@ const CategorySimpleForm = props => {
   const [categoryTitle, setCategoryTitle] = useState()
   const { addRecord } = useStore()
 
-
   const addCategoryTile = e => {
     if (e.key === 'Enter') {
       addRecord({
-        id: uuidv4(),
-        name: categoryTitle,
-        children: [],
+        categoryId: uuidv4(),
+        categoryName: categoryTitle,
       })
       setShowComponent(false)
     }

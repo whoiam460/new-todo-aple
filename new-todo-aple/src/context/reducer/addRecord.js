@@ -1,8 +1,6 @@
 const addRecord = (state, payload) => {
-  const stateCopy = state
-  stateCopy.push(payload)
-
-  return [...stateCopy]
+  
+  return { ...state, categories: [...state.categories, payload] }
 }
 
 export default addRecord

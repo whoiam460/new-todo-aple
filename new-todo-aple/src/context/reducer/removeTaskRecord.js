@@ -1,13 +1,11 @@
 const removeTaskRecord = (state, payload) => {
-  const id = payload
+  const taskId = payload
   const stateCopy = state
 
-  stateCopy.map(category => {
-    return (category.children = category.children?.filter(task => {
-      return task.id !== id
-    }))
+  const result = stateCopy.tasks.filter(list => {
+    return list.taskId !== taskId
   })
 
-  return [...stateCopy]
+  return { ...state, tasks: result }
 }
 export default removeTaskRecord

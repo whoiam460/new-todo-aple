@@ -1,11 +1,16 @@
-import { Button, Row, Col, Title } from '../'
+import { Button, Row, Col, Title, Text } from '../'
 import { AiOutlinePlus } from 'react-icons/ai'
 import HeaderStyled from './Header.style'
 import { useStore } from '../../context'
+import { useParams } from 'react-router-dom'
 
-const Header = (props) => {
-  const {itemSelectedName} = props
-  const { setShowAddTaskComponent } = useStore()
+const Header = props => {
+  const { id } = useParams()
+
+  const { setShowAddTaskComponent, selectedCategory, store } = useStore()
+
+  let taskCounter = 0
+  store?.tasks?.map(item => (item.parentId === id ? taskCounter++ : null))
 
   return (
     <HeaderStyled>
@@ -19,12 +24,20 @@ const Header = (props) => {
           />
         </Col>
       </Row>
+
       <Row>
-        <Col className="p-none" size={6}>
-          <Title>{itemSelectedName}</Title>
+        <Col className="pl-none d-flex align-items-center mb-xxl" size={12}>
+          <Title>{selectedCategory?.name}</Title>
+          <Title className="ml-auto">{taskCounter}</Title>
         </Col>
-        <Col size={6}>
-          <Title className="ml-auto">0</Title>
+      </Row>
+
+      <Row>
+        <Col
+          className="  pl-none d-flex align-items-center borderBottom-default "
+          size={12}>
+          <Text>0 Completed</Text>
+          <Text className="ml-auto">Show</Text>
         </Col>
       </Row>
     </HeaderStyled>

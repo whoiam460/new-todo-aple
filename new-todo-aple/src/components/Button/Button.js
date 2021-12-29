@@ -1,11 +1,21 @@
 import { ButtonStyled, TextWrapper } from './Button.style'
 
 const Button = props => {
-  const { isHover, isActive, children, shape, icon, variant, ...rest } = props
+  const {
+    flagStatus,
+    isHover,
+    isActive,
+    children,
+    shape,
+    icon,
+    variant,
+    ...rest
+  } = props
 
   return (
     <ButtonStyled
       {...rest}
+      flagStatus={flagStatus}
       variant={variant}
       isHover={isHover}
       isActive={isActive}

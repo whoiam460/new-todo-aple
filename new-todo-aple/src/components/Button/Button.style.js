@@ -42,6 +42,8 @@ const ButtonStyled = styled.button`
         `
     }
   }}
+
+ color: ${props => props.flagStatus? 'var(--color-orange)': null}
 `
 
 export { ButtonStyled, TextWrapper }

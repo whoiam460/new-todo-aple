@@ -10,6 +10,7 @@ const TextStyled = styled.div`
           font-weight: normal;
           font-family: 'San Francisco';
           color: ${props => props.color || '#848484'};
+          cursor: default;
         `
       default:
         return css`
@@ -17,7 +18,8 @@ const TextStyled = styled.div`
           line-height: 16px;
           font-weight: normal;
           font-family: 'San Francisco';
-          color: ${props => props.color || '#696a6a'};
+          color: ${props => props.color || 'black'};
+          cursor:default;
         `
     }
   }}

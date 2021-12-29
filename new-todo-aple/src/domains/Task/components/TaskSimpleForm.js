@@ -13,10 +13,11 @@ const TaskSimpleForm = () => {
 
   const addTaskListTitle = e => {
     if (e.key === 'Enter') {
-      addTaskRecord(selectedCategory.id, {
-        id: uuidv4(),
-        name: taskListTitle,
-        flad: false,
+      addTaskRecord({
+        taskId: uuidv4(),
+        taskName: taskListTitle,
+        flag: false,
+        parentId: selectedCategory.categoryId
       })
       setShowAddTaskComponent(false)
     }
@@ -24,7 +25,7 @@ const TaskSimpleForm = () => {
   return (
     <TaskViewSimpleFormStyled>
       <Row>
-        <Col className="pb-xl pl-none">
+        <Col className=" pl-none">
           <Checkbox bgColor="lightBlue" />
         </Col>
         <Col className="d-flex pl-none pb-lg borderBottom-default" size={12}>

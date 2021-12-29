@@ -107,13 +107,13 @@
   padding-bottom: var(--p-sm);
 }
 .pb-md {
-  padding-bottom: var(--p-md);
+  padding-bottom: var(--p-md) ;
 }
 .pb-lg {
-  padding-bottom: var(--p-lg) !important;
+  padding-bottom: var(--p-lg) ;
 }
 .pb-xl {
-  padding-bottom: var(--p-xl);
+  padding-bottom: var(--p-xl) !important;
 }
 .pb-xxl {
   padding-bottom: var(--p-xxl);
@@ -217,7 +217,7 @@
 }
 
 .borderBottom-default {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-gray-darken-3);
 }
 
 .bgColor-gray-default {

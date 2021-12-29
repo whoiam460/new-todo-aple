@@ -1,13 +1,16 @@
 const updateRecord = (state, payload) => {
-  const { id, newTitle } = payload
+  const { categoryId, newTitle } = payload
   const stateCopy = state
 
-  stateCopy.filter(item => {
-    if (item.id === id) {
-      item.name = newTitle
+
+  stateCopy.categories.filter(item => {
+    if (item.categoryId === categoryId) {
+      item.categoryName = newTitle
     }
+    
     return item
   })
-  return [...stateCopy]
+
+  return { ...stateCopy }
 }
 export default updateRecord

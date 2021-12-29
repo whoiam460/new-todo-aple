@@ -1,13 +1,18 @@
 const updateTaskRecord = (state, payload) => {
+  const { taskId, newTaskTitle, values } = payload
+  const {flagStatus} = values
+  // console.log(payload);
   const stateCopy = state
-  const { id, newTaskTitle } = payload
 
- stateCopy.map(category => category.children.filter(item => {
-     if (item.id === id) {
-         item.name = newTaskTitle
-     }
-     return item
- }))
- return [...stateCopy]
+  stateCopy.tasks.filter(item => {
+    if (item.taskId === taskId) {
+      item.taskName = newTaskTitle
+      item.flag = flagStatus
+    }
+    
+    return item
+  })
+
+  return { ...stateCopy }
 }
 export default updateTaskRecord
